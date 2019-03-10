@@ -1,3 +1,5 @@
 #!/usr/bin/bash
 
-    打发
+'''Java
+public static void main()
+'''
