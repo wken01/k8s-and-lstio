@@ -1,0 +1,9 @@
+##etcd health check
+
+etcdctl \
+--ca-file=/k8s/etcd/ssl/ca.pem \
+--cert-file=/k8s/etcd/ssl/server.pem \
+--key-file=/k8s/etcd/ssl/server-key.pem \
+--endpoints="https://192.168.3.3:2379,\
+https://192.168.3.4:2379,\
+https://192.168.3.6:2379" cluster-health
