@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 
-'''Java
+```Java
 public static void main()
-'''
+```
