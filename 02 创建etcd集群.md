@@ -1,7 +1,7 @@
 
 # 安装etcd
 
-## （1）解压安装文件
+## (1)解压安装文件
 
 ``` bash
   cd /opt/etcd-v3.3.10-linux-amd64
@@ -62,7 +62,7 @@
   WantedBy=multi-user.target
 ```
 
-## （4）copy etcd 证书
+## (4)copy etcd 证书
 
 ``` bash
   cd /opt/install/ssl/etcd
@@ -122,4 +122,23 @@
   firewall-cmd --query-port=2380/tcp
   firewall-cmd --permanent --zone=public --add-port=2380/tcp
   
+```
+
+## (8)验证etcd是否健康
+
+健康检查
+``` bash
+  /k8s/etcd/bin/etcdctl --ca-file=/k8s/etcd/ssl/ca.pem --cert-file=/k8s/etcd/ssl/server.pem --key-file=/k8s/etcd/ssl/server-key.pem --endpoints="https://192.168.3.3:2379,https://192.168.3.4:2379,https://192.168.3.6:2379" cluster-health   
+```
+
+测试
+``` bash
+    etcdctl --ca-file=/k8s/etcd/ssl/ca.pem --cert-file=/k8s/etcd/ssl/server.pem --key-file=/k8s/etcd/ssl/server-key.pem --endpoints="https://192.168.3.3:2379,https://192.168.3.4:2379,https://192.168.3.6:2379" set a 1
+  etcdctl --ca-file=/k8s/etcd/ssl/ca.pem --cert-file=/k8s/etcd/ssl/server.pem --key-file=/k8s/etcd/ssl/server-key.pem --endpoints="https://192.168.3.3:2379,https://192.168.3.4:2379,https://192.168.3.6:2379" get a
+```
+
+查询etcd leader
+``` bash 
+  etcdctl --ca-file=/k8s/etcd/ssl/ca.pem --cert-file=/k8s/etcd/ssl/server.pem --key-file=/k8s/etcd/ssl/server-key.pem --endpoints="https://192.168.3.3:2379,https://192.168.3.4:2379,https://192.168.3.6:2379" member list
+
 ```
