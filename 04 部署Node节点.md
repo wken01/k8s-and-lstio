@@ -251,4 +251,8 @@ vim /usr/lib/systemd/system/kube-proxy.service
 ``` bash
  kubectl get nodes
  
+ NAME        STATUS   ROLES    AGE     VERSION
+192.168.3.4   Ready    <none>   9m15s   v1.13.0
+192.168.3.6   Ready    <none>   9m15s   v1.13.0
+ 
  ```
