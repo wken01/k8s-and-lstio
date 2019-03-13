@@ -3,6 +3,7 @@
   kubernetes master 节点运行如下组件： kube-apiserver kube-scheduler kube-controller-manager kube-scheduler 
   和 kube-controller-manager 可以以集群模式运行，通过 leader 选举产生一个工作进程，
   其它进程处于阻塞模式，master三节点高可用模式下可用
+ 
 ```
 
 ##  (1) 解压缩文件
