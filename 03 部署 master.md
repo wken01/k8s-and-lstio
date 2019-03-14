@@ -131,13 +131,15 @@
 
 ##  (10)创建kube-controller-manager systemd文件
 
+vim /usr/lib/systemd/system/kube-controller-manager.service
+
 ``` bash
   [Unit]
   Description=Kubernetes Controller Manager
   Documentation=https://github.com/kubernetes/kubernetes
 
   [Service]
-  EnvironmentFile=-/k8s/kubernetes/cfg/kube-controller-manager
+  EnvironmentFile=-/k8s/kubernetes/cfg/kube-controller-manager.conf
   ExecStart=/k8s/kubernetes/bin/kube-controller-manager $KUBE_CONTROLLER_MANAGER_OPTS
   Restart=on-failure
 
