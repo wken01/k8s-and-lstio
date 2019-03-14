@@ -1,5 +1,6 @@
 curl http://localhost:8080/api/v1/namespaces/kys/services/service-test
 
+这里边selftLink 就是真实的api 地址
 ``` bash
 	{
 	  "kind": "Service",
