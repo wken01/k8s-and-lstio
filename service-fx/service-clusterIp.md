@@ -34,3 +34,11 @@ service-test.yaml
 ```
 	kubectl expose deployment service-test --port 8088 --target-port=8080 -n kys
 ```
+
+
+测试，能返回部署到不同node 上的pod信息
+
+```
+	curl clusterip:port
+```
+
