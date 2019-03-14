@@ -1,5 +1,8 @@
 curl http://localhost:8080/api/v1/namespaces/kys/services/service-test
 
+cutl -k https://192.168.1.150:6443/api/v1/namespaces/kys/services/service-test
+
+在浏览器中 https://192.168.1.150:6443/api/v1/namespaces/kys/services/service-test 可以下载到service-test.json
 ``` bash
 	{
 	  "kind": "Service",
