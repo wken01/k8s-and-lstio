@@ -45,6 +45,8 @@
 
 ### 2.3创建kubelet bootstrap kubeconfig文件 通过脚本实现
 
+token.csv，environment.sh 必须在master上创建，执行完拷贝bootstrap.kubeconfig,kube-proxy.kubeconfig,token.csv 到个节点相同目录
+,
 ``` bash
   vim /k8s/kubernetes/cfg/environment.sh
   #!/bin/bash
@@ -114,6 +116,8 @@
 ```
 
 ### 2.5创建kubelet参数配置模板文件
+
+在节点上创建
 
 ``` bash
   vim /k8s/kubernetes/cfg/kubelet.config

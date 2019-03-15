@@ -29,7 +29,7 @@
 ## (3)创建 etcd的 systemd unit 文件
 
 ``` bash
-  vim/usr/lib/systemd/system/etcd.service.conf
+  vim/usr/lib/systemd/system/etcd.service
   [Unit]
   Description=Etcd Server
   After=network.target
@@ -38,7 +38,7 @@
 
   [Service]
   Type=notify
-  EnvironmentFile=/k8s/etcd/cfg/etcd
+  EnvironmentFile=/k8s/etcd/cfg/etcd.conf
   ExecStart=/k8s/etcd/bin/etcd \
   --name=${ETCD_NAME} \
   --data-dir=${ETCD_DATA_DIR} \
