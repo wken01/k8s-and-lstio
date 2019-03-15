@@ -54,6 +54,9 @@ nginx-dev.yaml
 		targetPort很好理解，targetPort是pod上的端口，从port和nodePort上到来的数据最终经过kube-proxy流入到后端pod的targetPort上进入容器。
 		
 		port和nodePort都是service的端口，前者暴露给集群内客户访问服务，后者暴露给集群外客户访问服务。从这两个端口到来的数据都需要经过反向代理kube-proxy流入后端pod的targetPod，从而到达pod上的容器内。
+		
+		使用Userspace模式（k8s版本为1.2之前默认模式），外部网络可以直接访问cluster IP。 
+		使用Iptables模式（k8s版本为1.2之后默认模式），外部网络不能直接访问cluster IP。
 ```
 
 pod_nginx.yaml
