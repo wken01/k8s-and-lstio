@@ -92,3 +92,4 @@ nginx-service.yaml
 		app: nginx
 	  type: NodePort
 ```
+
