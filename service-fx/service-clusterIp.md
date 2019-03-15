@@ -1,4 +1,6 @@
 
+kubectl get pod -n  kys --show-labels
+ 
 service-test.yaml
 
 ``` bash
