@@ -191,3 +191,47 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiw
 
 
 
+### 创建使用 token 的 KubeConfig 文件
+
+``` bash
+source /opt/k8s/bin/environment.sh
+# 设置集群参数
+kubectl config set-cluster kubernetes \
+  --certificate-authority=/etc/kubernetes/cert/ca.pem \
+  --embed-certs=true \
+  --server=${KUBE_APISERVER} \
+  --kubeconfig=dashboard.kubeconfig
+
+# 设置客户端认证参数，使用上面创建的 Token
+kubectl config set-credentials dashboard_user \
+  --token=${DASHBOARD_LOGIN_TOKEN} \
+  --kubeconfig=dashboard.kubeconfig
+
+# 设置上下文参数
+kubectl config set-context default \
+  --cluster=kubernetes \
+  --user=dashboard_user \
+  --kubeconfig=dashboard.kubeconfig
+
+# 设置默认上下文
+kubectl config use-context default --kubeconfig=dashboard.kubeconfig
+```
+
+用生成的 dashboard.kubeconfig  登录 Dashboard。
+
+![images/dashboard.png](images/dashboard.png)
+
+由于缺少 Heapster 插件，当前 dashboard 不能展示 Pod、Nodes 的 CPU、内存等统计数据和图表；
+
+## 主界面
+
+![dashboard-2](./images/dashboard-2.png)
+
+## 参考
+
+1. https://github.com/kubernetes/dashboard/wiki/Access-control
+1. https://github.com/kubernetes/dashboard/issues/2558
+1. https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
+
+
+
