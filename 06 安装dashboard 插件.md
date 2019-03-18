@@ -219,7 +219,6 @@ kubectl config use-context default --kubeconfig=dashboard.kubeconfig
 
 用生成的 dashboard.kubeconfig  登录 Dashboard。
 
-![images/dashboard.png](images/dashboard.png)
 
 由于缺少 Heapster 插件，当前 dashboard 不能展示 Pod、Nodes 的 CPU、内存等统计数据和图表；
 
