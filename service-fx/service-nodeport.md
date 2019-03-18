@@ -57,6 +57,7 @@ nginx-dev.yaml
 		
 		使用Userspace模式（k8s版本为1.2之前默认模式），外部网络可以直接访问cluster IP。 
 		使用Iptables模式（k8s版本为1.2之后默认模式），外部网络不能直接访问cluster IP。
+	(3)targetPort 一定要和pod中的ports-name对应
 ```
 
 pod_nginx.yaml
@@ -94,5 +95,10 @@ nginx-service.yaml
 	  selector:
 		app: nginx
 	  type: NodePort
+```
+
+结果：
+``` bash
+	curl http://192.168.1.160:30001/
 ```
 
