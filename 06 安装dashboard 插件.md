@@ -174,5 +174,5 @@ kubernetes-dashboard 服务暴露了 NodePort，可以使用 https://NodeIP:Node
 
 ## dashboard 主界面
 
-
+![dashboard-1](./images/dashboard-1.png)
 
