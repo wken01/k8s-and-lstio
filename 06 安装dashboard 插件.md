@@ -173,5 +173,20 @@ kubernetes-dashboard 服务暴露了 NodePort，可以使用 https://NodeIP:Node
 
 ## dashboard 主界面
 
+![dashboard-1](./images/dashboard-1.png)
+
+## 生成登录的token
+
+``` bash
+kubectl create sa dashboard-admin -n kube-system
+kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster-admin --serviceaccount=kube-system:dashboard-admin
+ADMIN_SECRET=$(kubectl get secrets -n kube-system | grep dashboard-admin | awk '{print $1}')
+DASHBOARD_LOGIN_TOKEN=$(kubectl describe secret -n kube-system ${ADMIN_SECRET} | grep -E '^token' | awk '{print $2}')
+echo ${DASHBOARD_LOGIN_TOKEN}
+
+eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJkYXNoYm9hcmQtYWRtaW4tdG9rZW4tMmh0Y3oiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGFzaGJvYXJkLWFkbWluIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiOTg3ZTQyZjYtNDk1Ny0xMWU5LTlhNDUtMGM5ZDkyYzkwZjRmIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmUtc3lzdGVtOmRhc2hib2FyZC1hZG1pbiJ9.l5A5h6O34yoIaPrtV9eoddfVg0TUanYCDXQf1SWs0ccEyQSnQnjZGhrRnG-O2o7XabVGt3jondHOEgT-OBlSlkR0dcQN5eJ8OC1sGmGbfxfrJtExWcNDf0RppHGqi8YyX0zMK1xZ7bcsQOMhWkhCXTefBYsD1RfgE0Lb8CsRm_QSHkH8YWYckQ3CAUNx3-EYa-BGv8bGXfKzqQ237gSxo6DdbSupEwX8oXyeggK_Ub6wMhs8Q6Dkt1xgdKri7pmSpjYRR446oFiAfILU7xqeUnLXM8c1b34hc2TIQLguZYx6pr2WjMXwX7cpEs_znJEsR4aK0oxzA9Kx0HfcGGAqNQ
+```
+使用输出的 token 登录 Dashboard。
+
 
 
