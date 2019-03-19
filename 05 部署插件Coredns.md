@@ -222,3 +222,10 @@ Export 该 Deployment, 生成 my-nginx 服务：
   Name:   kube-dns.kube-system.svc.cluster.local
   Address: 10.254.0.10
  ```
+
+测试
+
+``` bash
+kubectl run curl --image=radial/busyboxplus:curl -i --tty
+
+```
