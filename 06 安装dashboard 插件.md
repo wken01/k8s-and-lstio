@@ -1,4 +1,4 @@
-# 安装dashboard 插件
+# http://www.cnblogs.com/scode2/p/8810052.html# 安装dashboard 插件
 
 ## 1.1 切换到 kubernetes 源码目录
 
