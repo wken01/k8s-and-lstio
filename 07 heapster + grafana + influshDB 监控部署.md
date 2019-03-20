@@ -259,7 +259,14 @@ https://192.168.1.150:6443/api/v1/namespaces/kube-system/services/https:kubernet
 
 要用dashboard中生成的token 登录才可
 
+![dashboard-3](./images/dashboard-3.png)
+
 grafana监控页面
 
 http://192.168.1.160:30108/?orgId=1 
 用户名密码都是 admin
+
+![clusterinfo](./images/clusterinfo.png)
+
+
+![podinfo](./images/podinfo.png)
