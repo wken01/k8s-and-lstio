@@ -2,6 +2,9 @@ https://blog.csdn.net/java_zyq/article/details/82496842
 https://www.cnblogs.com/Irving/p/9879520.html
 
 
+https://blog.csdn.net/bbwangj/article/details/82940419
+https://blog.csdn.net/sinat_35930259/article/details/80172187
+
 
 --强制删除命令空间方法
 get ns ingress-nginx -o json > /opt/local.json
