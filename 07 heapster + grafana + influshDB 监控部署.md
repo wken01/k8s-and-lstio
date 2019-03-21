@@ -255,6 +255,8 @@ spec:
 
 k8s 资源监控页面
 
+一般内网监控和调试用，偶尔外网也会用到(需暴露端口配置)
+
 https://192.168.1.150:6443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/node/192.168.1.170?namespace=kys
 
 要用dashboard中生成的token 登录才可
