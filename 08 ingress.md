@@ -198,5 +198,18 @@ spec:
 
 ```
 
+## 查看2个服务
+
+![nginx-ingress-service1](./images/nginx-ingress-service1.png)
+
+![nginx-ingress-service2](./images/nginx-ingress-service2.png)
+
+
+![nginx-ingress-rule](./images/nginx-ingress-rule.png)
+
+![nginx-ingress-health](./images/nginx-ingress-health.png)
+
+
+
 
 
