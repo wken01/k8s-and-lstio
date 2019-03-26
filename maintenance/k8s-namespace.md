@@ -37,3 +37,38 @@ get ns ingress-nginx -o json > /opt/local.json
 curl -H "Content-Type: application/json" -X PUT --data-binary @local.json http://127.0.0.1:8080/api/v1/namespaces/ingress-nginx/finalize
 
 '''
+
+
+```
+创建命名空间
+	kubectl create namespace k8s-test
+
+	列出所有的namespaces
+	kubectl get namespaces  或  kubectl get ns --show-labels
+	curl http://localhost:8080/api/v1/namespaces   --api方式获取所有命令空间
+
+	删除命令空间
+	kubectl delete namespaces/ns-dev
+
+	查看命名空间信息
+	kubectl describe namespaces/ns-dev
+
+	创建命名空间
+	cat ~/k8s_install/test/ns/dev.yaml
+	apiVersion: v1
+	kind: Namespace
+	metadata:
+	  name: ns-dev
+	  labels:
+		name: envDev
+
+	kubectl apply -f ~/k8s_install/test/ns/dev.yaml
+
+	设置命令空间上下文作用？
+	可以定义测试，开发，生产定义不同的命名空间，
+
+	kubectl api-resources --namespaced=true
+
+	执行报错：error: unable to retrieve the complete list of server APIs: metrics.k8s.io/v1beta1: the server is currently unable to handle the request
+
+```
