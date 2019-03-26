@@ -198,6 +198,9 @@ spec:
 
 ```
 
+192.168.1.160  foo.bar.com  添加到/etc/hosts,客户端的hosts也需要添加
+
+
 ## 查看2个服务
 
 ![nginx-ingress-service1](./images/nginx-ingress-service1.png)
@@ -209,6 +212,66 @@ spec:
 
 ![nginx-ingress-health](./images/nginx-ingress-health.png)
 
+
+# 下面我们对tomcat服务添加httpds服务
+
+## 创建私有证书及secret
+
+```
+  [root@k8s-master ingress-nginx]# openssl genrsa -out tls.key 2048
+  Generating RSA private key, 2048 bit long modulus
+  .......+++
+  ..............................+++
+  e is 65537 (0x10001)
+  [root@k8s-master ingress-nginx]# openssl req -new -x509 -key tls.key -out tls.crt -subj /C=CN/ST=Beijing/L=Beijing/O=DevOps/CN=tomcat.magedu.com #注意域名要和服务的域名一致 
+  [root@k8s-master ingress-nginx]# kubectl create secret tls tomcat-ingress-secret --cert=tls.crt --key=tls.key #创建secret
+  secret "tomcat-ingress-secret" created
+  [root@k8s-master ingress-nginx]# kubectl get secret
+  NAME                    TYPE                                  DATA      AGE
+  default-token-bf52l     kubernetes.io/service-account-token   3         9d
+  tomcat-ingress-secret   kubernetes.io/tls                     2         7s
+  [root@k8s-master ingress-nginx]# kubectl describe secret tomcat-ingress-secret
+  Name:         tomcat-ingress-secret
+  Namespace:    default
+  Labels:       <none>
+  Annotations:  <none>
+
+  Type:  kubernetes.io/tls
+
+  Data
+  ====
+  tls.crt:  1294 bytes  #base64加密
+  tls.key:  1679 bytes
+```
+将证书应用至tomcat服务中
+
+```
+root@k8s-master01 ingress]# cat ingress-tomcat-tls.yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-tomcat-tls
+  namespace: default
+  annotations: 
+    kubernets.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - tomcat.magedu.com        #与secret证书的域名需要保持一致
+    secretName: tomcat-ingress-secret   #secret证书的名称
+  rules:
+  - host: tomcat.magedu.com
+    http:
+      paths:
+      - path: 
+        backend:
+          serviceName: tomcat
+          servicePort: 8080
+  
+
+```
+
+访问服务
 
 
 
