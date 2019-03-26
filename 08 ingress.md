@@ -84,6 +84,8 @@ ingress服务
 
 service-nodeport 是一个service 是直接指向 nginx-ingress-controller的
 
+了解了以上内容以后，这也就很好的说明了我为什么喜欢把负载均衡器部署为 Daemon Set；因为无论如何请求首先是被负载均衡器拦截的，所以在每个 node 上都部署一下，同时 hostport 方式监听 80 端口；那么就解决了其他方式部署不确定 负载均衡器在哪的问题，同时访问每个 node 的 80 都能正确解析请求；如果前端再 放个 nginx 就又实现了一层负载均衡
+
 ```
   kubectl apply -f mandatory.yaml default-backend.yaml service-nodeport.yaml
 ```
