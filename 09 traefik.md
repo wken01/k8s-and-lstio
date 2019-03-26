@@ -1,5 +1,5 @@
 #  traefik简介
-
+https://www.jianshu.com/p/1afe374f4333
 ```
 Træfɪk 是一个为了让部署微服务更加便捷而诞生的现代HTTP反向代理、负载均衡工具。 它支持多种后台 (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Rest API, file…) 
 来自动化、动态的应用它的配置文件设置。
