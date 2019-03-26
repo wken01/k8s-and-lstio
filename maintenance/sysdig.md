@@ -241,3 +241,10 @@ Measure a span defined by a login attempt, identified by the thread:
 
   echo "<:t:login::" > /dev/null
 ```
+
+
+# 使用2
+
+```
+ 
+```
