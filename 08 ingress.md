@@ -112,5 +112,91 @@ service-nodeport 是一个service 是直接指向 nginx-ingress-controller的
 
 ## 访问nginx-ingress
 
+![nginx-ingress](./images/nginx-ingress.png)
+
+可以看到，提示404，这个因为当前ingress-nginx服务现在还没有后端服务，这是正常的
+
+
+
+# 创建后端服务
+
+## 创建一个Service及后端Deployment(以tomcat为例)
+
+```
+ [root@k8s-master ingress-nginx]# cat tomcat-deploy.yaml 
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcat
+  namespace: default
+spec:
+  selector:
+    app: tomcat
+    release: canary
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  - name: ajp
+    port: 8009
+    targetPort: 8009
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: tomcat-deploy
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: tomcat
+      release: canary
+  template:
+    metadata:
+      labels:
+        app: tomcat
+        release: canary
+    spec:
+      containers:
+      - name: tomcat
+        image: tomcat:7-alpine
+        ports:
+        - name: httpd
+          containerPort: 8080
+        - name: ajp
+          containerPort: 8009 
+```
+
+将tomcat添加至ingress-nginx中，增加到ingress脚本中
+app-nginx-ingress
+```
+
+cat nginx-ingress.yaml
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: app-nginx-ingress
+  namespace: default
+spec:
+  rules:
+  - host: foo.bar.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx
+          servicePort: 80
+    http:
+      paths:
+      - path: /examples
+        backend:
+          serviceName: tomcat
+          servicePort: 8080
+[root@k8s-master deploy]# 
+
+```
+
 
 
