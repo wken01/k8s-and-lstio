@@ -34,3 +34,7 @@ Rest Metrics
 高可用集群模式
 
 ```
+
+# 清爽的界面，Træfɪk 拥有一个基于AngularJS编写的简单网站界面
+
+![traefik-jk](./images/traefik-jk.png)
