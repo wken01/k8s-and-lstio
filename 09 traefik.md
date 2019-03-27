@@ -460,6 +460,8 @@ http://traefik-ui.minikube:34915/dashboard/
 
 # 其他特性(待验证)
 
+https://docs.traefik.io/configuration/backends/kubernetes/  其他特性在这里查
+
 ```
 6、部分特性说明
 
