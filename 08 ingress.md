@@ -157,7 +157,7 @@ spec:
   template:
     metadata:
       labels:
-        app: tomcat
+        <strong>app: tomcat</strong>
         release: canary
     spec:
       containers:
