@@ -441,7 +441,9 @@ ingress.extensions/traefik-web-ui   traefik-ui.minikube             80      5h6m
 # 访问服务（要配置hosts，和开启防火墙端口）
 
 http://cheeses.minikube:22680/stilton
+
 http://cheeses.minikube:22680/stilton
+
 http://cheeses.minikube:22680/stilton
 
 http://traefik-ui.minikube:34915/dashboard/
