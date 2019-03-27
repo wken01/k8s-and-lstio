@@ -449,3 +449,5 @@ http://cheeses.minikube:22680/stilton
 http://traefik-ui.minikube:34915/dashboard/
 
 
+![traefik-health](./images/traefik-health.png)
+
