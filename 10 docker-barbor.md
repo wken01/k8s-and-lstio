@@ -281,4 +281,5 @@ registry             /entrypoint.sh serve /etc/ ...   Up      5000/tcp
  
  ## 登录harbor
  
+ ![harbor](./images/harbor.png)
  
