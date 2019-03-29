@@ -279,7 +279,37 @@ redis                docker-entrypoint.sh redis ...   Up      6379/tcp
 registry             /entrypoint.sh serve /etc/ ...   Up      5000/tcp                                                         
  ```
  
+ 检查日志
+ 
+ ```
+  cd /var/log/harbor
+  
+-rw-r----- 1 10000 10000  661853 Mar 29 10:30 adminserver.log
+-rw-r----- 1 10000 10000   31783 Mar 29 09:52 jobservice.log
+-rw-r----- 1 10000 10000   72276 Mar 29 10:03 mysql.log
+-rw-r----- 1 10000 10000  368126 Mar 29 10:30 proxy.log
+-rw-r----- 1 10000 10000  175597 Mar 29 10:27 redis.log
+-rw-r----- 1 10000 10000  805840 Mar 29 10:30 registry.log
+-rw-r----- 1 10000 10000 6668946 Mar 29 10:30 ui.log
+ ```
  ## 登录harbor
  
  ![harbor](./images/harbor.png)
+ 
+ ## 命令行登录
+ 
+ ```
+    docker login 192.168.1.150
+    
+    Username: admin
+    Password: 
+    WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+    Configure a credential helper to remove this warning. See
+    https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+    Login Succeeded
+    
+ ```
+ 
+ 
  
