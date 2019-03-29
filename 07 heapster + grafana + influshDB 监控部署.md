@@ -39,7 +39,7 @@ spec:
         command:
         - /heapster
         - --source=kubernetes:https://192.168.1.150:6443?kubeletHttps=true&kubeletPort=10250&insecure=true #（2）修改api地址
-        - --sink=influxdb:http://192.168.1.160:31001 #（3）修改数据源地址，采集的数据存放到influxdb
+        - --sink=influxdb:http://192.168.1.160:31001 #（3）修改数据源地址，采集的数据存放到influxdb,这里写死是有问题的，怎么解决高可用?
 ---
 apiVersion: v1
 kind: Service
