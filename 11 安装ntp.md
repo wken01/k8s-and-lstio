@@ -1,5 +1,11 @@
 # 安装ntp 处理各节点时间同步问题
 
+源于这样的系统日志错误
+```
+
+```
+Apr 04 07:13:37 k8s-node-2 etcd[5667]: the clock difference against peer 8985c5debfc1e55c is too high [1m47.480274814s > 1s] (prober "ROUND_TRIPPER_SNAPSHOT")
+
 ```
   yum install -y ntp
   systemctl enable ntpd
