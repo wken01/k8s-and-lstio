@@ -20,12 +20,12 @@ Træfɪk 是一个为了让部署微服务更加便捷而诞生的现代HTTP反�
 它非常快
 无需安装其他依赖，通过Go语言编写的单一可执行文件
 支持 Rest API
-多种后台支持：Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, 并且还会更多
-后台监控, 可以监听后台变化进而自动化应用新的配置文件设置
-配置文件热更新。无需重启进程
-正常结束http连接
-后端断路器
-轮询，rebalancer 负载均衡
+多种后台支持：Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, 并且还会更多 *
+后台监控, 可以监听后台变化进而自动化应用新的配置文件设置 *
+配置文件热更新。无需重启进程 *
+正常结束http连接 *
+后端断路器 *
+轮询，rebalancer 负载均衡 *
 Rest Metrics
 支持最小化 官方 docker 镜像
 后台支持SSL
@@ -33,9 +33,9 @@ Rest Metrics
 清爽的AngularJS前端页面
 支持Websocket
 支持HTTP/2
-网络错误重试
+网络错误重试 *
 支持Let’s Encrypt (自动更新HTTPS证书)
-高可用集群模式
+高可用集群模式 *
 
 ```
 
