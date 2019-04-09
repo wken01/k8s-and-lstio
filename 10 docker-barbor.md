@@ -309,7 +309,11 @@ registry             /entrypoint.sh serve /etc/ ...   Up      5000/tcp
 
     Login Succeeded
     
+    docker tag centos-zh 192.168.1.160/test/centos-zh:v1
+    docker push  192.168.1.160/test/centos-zh:v1
+    
  ```
  
  
  
+
