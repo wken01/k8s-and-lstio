@@ -13,4 +13,7 @@ etcdctl --ca-file=/k8s/etcd/ssl/ca.pem --cert-file=/k8s/etcd/ssl/server.pem --ke
 查看leader
 etcdctl --ca-file=/k8s/etcd/ssl/ca.pem --cert-file=/k8s/etcd/ssl/server.pem --key-file=/k8s/etcd/ssl/server-key.pem --endpoints=https://192.168.1.61:2379 member list
 
+
+备份
+etcdctl backup --data-dir /usr/local/etcd/xxx/ --backup-dir /niub/etcd_backup/
 ```
