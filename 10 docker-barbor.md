@@ -294,6 +294,9 @@ registry             /entrypoint.sh serve /etc/ ...   Up      5000/tcp
  ```
  ## 登录harbor
  
+ https://192.168.1.160/harbor/projects
+ admin/kys123456
+ 
  ![harbor](./images/harbor.png)
  
  ## 命令行登录
