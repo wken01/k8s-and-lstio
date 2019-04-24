@@ -299,7 +299,7 @@ registry             /entrypoint.sh serve /etc/ ...   Up      5000/tcp
  ## 命令行登录
  
  ```
-    docker login 192.168.1.150
+    docker login 192.168.1.160
     
     Username: admin
     Password: 
