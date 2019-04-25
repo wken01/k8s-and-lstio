@@ -1,4 +1,8 @@
 #  traefik简介
+
+做了 ingress ,nginx-ingress和traefik 二选就可以
+
+
 https://www.jianshu.com/p/1afe374f4333
 
 https://blog.csdn.net/java_zyq/article/details/82496842
