@@ -267,4 +267,17 @@ If you don't see a command prompt, try pressing enter.
 Connecting to services-case (10.254.22.114:80)
 getValue             100% |*****************************************************************************************************************************************************************************************|    82  0:00:00 ETA
 
+
+（3）跨命名空间的服务访问
+
+kubectl run busybox -n kys --rm -it --image=busybox /bin/sh
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+If you don't see a command prompt, try pressing enter.
+/ # 
+/ # 
+/ # 
+/ # wget services-case.ingress-traefik/test/getValue
+Connecting to services-case.ingress-traefik (10.254.22.114:80)
+getValue             100% |*****************************************************************************************************************************************************************************************|    82  0:00:00 ETA
+
 ```
