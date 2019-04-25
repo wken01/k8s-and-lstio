@@ -8,6 +8,7 @@
 
 ##  (1) 解压缩文件
 ``` bash
+  cd /opt
   tar -zxvf kubernetes-server-linux-amd64.tar.gz 
   cd kubernetes/server/bin/
   cp kube-scheduler kube-apiserver kube-controller-manager kubectl /k8s/kubernetes/bin/
