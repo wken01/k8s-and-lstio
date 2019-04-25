@@ -226,6 +226,45 @@ Export 该 Deployment, 生成 my-nginx 服务：
 测试
 
 ``` bash
-kubectl run curl --image=radial/busyboxplus:curl -i --tty
+(1) kubectl run curl --image=radial/busyboxplus:curl -i --tty
+[ root@curl-66959f6557-7js69-d4ffcc96c-ppqrp:/ ]$ curl nginx
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+
+
+（2）kubectl run busybox -n ingress-traefik --rm -it --image=busybox /bin/sh
+
+[root@k8s-master k8s]# kubectl run busybox -n ingress-traefik --rm -it --image=busybox /bin/sh
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+If you don't see a command prompt, try pressing enter.
+/ # 
+/ # 
+/ # wget services-case/test/getValue
+Connecting to services-case (10.254.22.114:80)
+getValue             100% |*****************************************************************************************************************************************************************************************|    82  0:00:00 ETA
 
 ```
