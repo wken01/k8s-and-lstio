@@ -72,3 +72,8 @@ curl -H "Content-Type: application/json" -X PUT --data-binary @local.json http:/
 	执行报错：error: unable to retrieve the complete list of server APIs: metrics.k8s.io/v1beta1: the server is currently unable to handle the request
 
 ```
+
+还有一种方法，在etcd中删除
+```
+ETCDCTL_API=3 etcdctl  del /registry/namespaces/kong
+```
