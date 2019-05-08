@@ -15,5 +15,6 @@
 
 
 
- 
+ mkdir /home/soft
+ mkdir /home/rpm/{dev,base,network,yum} -p
 ```
