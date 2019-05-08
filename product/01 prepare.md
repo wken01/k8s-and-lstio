@@ -33,7 +33,7 @@
  
  #本地安装
  yum localinstall *.rpm -y
- rpm -ivp *.rpm 
+ rpm -Uvh *.rpm --nodeps --force  #可以强制删除现装的包，避免冲突
  
  #下载组
  yumdownloader "@Development Tools" --resolve --destdir /data/yum-pkgs/dev-tools/ --下载软件组
