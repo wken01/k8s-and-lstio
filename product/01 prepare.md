@@ -17,7 +17,11 @@
  #在离线机上分别操作
  
  mkdir /home/soft
- mkdir /home/rpm/{dev,base,network,yum} -p
+ #在离线机上分别操作
+ mkdir /home/rpm/{dev,base,network,yum,docker,gcc,analysis} -p
+ 
+ cd /home/rpm
+ rpm -Uvh  base/* analysis/* gcc/* dev/* network/* yum/* docker/* --nodeps --force
  
 
 ```
