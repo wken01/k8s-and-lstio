@@ -81,6 +81,11 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 
 
+10.查看docker 启动日志
+
+journalctl -u docker.service
+
+
 几个速度比较快的镜像地址
 
 Docker 官方中国区: https://registry.docker-cn.com
