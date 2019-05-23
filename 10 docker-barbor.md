@@ -64,6 +64,8 @@ hosts 字段指定授权使用该证书的当前部署节点 IP，如果后续�
 
 生成 harbor 证书和私钥：
 
+01 初始化环境.md 中创建kubernetes 使用ca-config.json和ca-csr.json,并执行
+
 ```
    cfssl gencert -ca=/k8s/kubernetes/ssl/ca.pem -ca-key=/k8s/kubernetes/ssl/ca-key.pem -config=/opt/harbor/ssl/ca-config.json -profile=kubernetes harbor-csr.json | cfssljson -bare harbor
 ```
