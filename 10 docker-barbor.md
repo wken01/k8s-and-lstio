@@ -66,7 +66,9 @@ hosts 字段指定授权使用该证书的当前部署节点 IP，如果后续�
 
 01 初始化环境.md 中创建kubernetes 使用ca-config.json和ca-csr.json,并执行
 
-```
+
+``` 
+   cfssl gencert -initca ca-csr.json | cfssljson -bare ca -
    cfssl gencert -ca=/k8s/kubernetes/ssl/ca.pem -ca-key=/k8s/kubernetes/ssl/ca-key.pem -config=/opt/harbor/ssl/ca-config.json -profile=kubernetes harbor-csr.json | cfssljson -bare harbor
 ```
 
@@ -304,6 +306,14 @@ registry             /entrypoint.sh serve /etc/ ...   Up      5000/tcp
  ## 命令行登录
  
  ```
+     vim /etc/docker/daemon.json
+     {
+        "registry-mirrors": ["https://xxx.mirror.aliyuncs.com"],
+        "insecure-registries": ["192.168.1.173"]
+     }
+     systemctl daemon-reload
+     systemctl restart docker
+
     docker login 192.168.1.160
     
     Username: admin
