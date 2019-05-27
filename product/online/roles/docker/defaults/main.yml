@@ -1,0 +1,18 @@
+# 国内镜像加速
+
+REG_MIRRORS:
+  - "https://dockerhub.azk8s.cn"
+  - "https://docker.mirrors.ustc.edu.cn"
+
+# docker日志相关
+
+LOG_DRIVER: "json-file"
+LOG_LEVEL: "warn"
+LOG_MAX_SIZE: "10m"
+LOG_MAX_FILE: 3
+
+# docker容器存储目录
+STORAGE_DIR: "/var/lib/docker"
+
+# 开启Restful API
+ENABLE_REMOTE_API: false
