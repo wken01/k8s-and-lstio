@@ -17,8 +17,8 @@ vxlan
 
 
 ```
-![vlan](./../images/vlan.jpg)
-![vlan2](./../images/vlan2.jpg)
+![vxlan](./../images/vlan.png)
+![vxlan2](./../images/vlan2.png)
 
 ```
 相比VLAN技术，VXLAN技术具有以下的优势：
