@@ -45,5 +45,12 @@ pod 和 container网路
 大概是这样，这个是docker的网络
 k8s的话把这个图上的container换成pod，docker0换成cni0
 
+一个pod一般只有一个veth插在网桥，每个pod都有一个infra容器（就是那个k8s的paluse镜像），pod中你声明的容器都会共享这个infra容器的网卡eth0，docker（这里其实是调用k8s的cni间接调度docker）会把这个eth0设备映射到cni0上
+
+其实这个veth设备和eth0是一个设备，就像网线的两头一样,eth0上收发到的数据包会出现在veth上
+
+
 ```
+
+
 
