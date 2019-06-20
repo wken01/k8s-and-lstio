@@ -8,7 +8,6 @@ docker相关
 容器和镜像原理
 
 1.安装docker
-
 http://www.runoob.com/docker/centos-docker-install.html
 
 
