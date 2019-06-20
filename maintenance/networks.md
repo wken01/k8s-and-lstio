@@ -49,6 +49,14 @@ k8s的话把这个图上的container换成pod，docker0换成cni0
 
 其实这个veth设备和eth0是一个设备，就像网线的两头一样,eth0上收发到的数据包会出现在veth上
 
+network ns你可以理解成就是一块插在cni0网桥上的虚拟网卡设备
+是的 pod内部的容器共享一个network namespace
+每个node  占用一个 网段  每个pod占用 一个ip 就够了 
+毕竟容器跨宿主机通信要靠CNI,POD是IP靠CNI分发
+严格的讲应该是你init集群的时候pod网段就设置好了，你只需要告诉cni你的pod网段就好
+而且像flannel这种 10.244.0.0/16 的话，每台宿主机上只能分配254个pod，超过IP地址就用完了,也许满了会再去申请网段吧?
+VETH 的目的只是把container的eth0映射到bridge
+
 
 ```
 
