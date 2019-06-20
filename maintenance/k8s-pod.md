@@ -42,6 +42,10 @@ kubectl delete pod memory-demo --namespace=k8s-test
 批量删除pod
 kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
 
+实时更新pod 
+
+kubectl edit deployment pigx-auth -n kys 或 kubectl apply -f pigx-auth.yaml
+
 （5）使用一些复杂过滤条件查看特定的资源对象
 
 根据重启次数排序列出 pod
