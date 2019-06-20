@@ -37,3 +37,13 @@ VXLAN在云数据中心之间虚拟机迁移中的应用，如某个企业在不
 
 VXLAN在SDN环境下的应用，SDN环境下，可以通过SDN控制器来实现VXLAN的IP和VID之间相关信息的对应关系，SDN控制器可以作为ARP代答设备，这样大大提高了VXLAN的灵活性与扩展性。所以VXLAN技术在SDN环境中可以被广泛应用。
 ```
+
+pod 和 container网路
+![docker-network](./../images/docker-network.jpg)
+
+```
+大概是这样，这个是docker的网络
+k8s的话把这个图上的container换成pod，docker0换成cni0
+
+```
+
