@@ -27,6 +27,12 @@ docker stats -a 查看所有容器运行状态
 docker stats 70ccc226ec07 查看某一个容易运行状态
 docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}" --监控容器状态变化
 docker logs -f --tail 100 4f8185117103 日志（4f8185117103 通过docker ps获取）
+docker logs -f -t --since="20187-7-30" --tail=10 docker_container_name
+--since : 此参数指定了输出日志开始日期，即只输出指定日期之后的日志。
+-f : 查看实时日志
+-t : 查看日志产生的日期
+-tail=10 : 查看最后的10条日志。
+
 docker inspect 4f8185117103 查看容器详细信息
 
 docker images -a --列出所有镜像
